@@ -1,5 +1,6 @@
 ﻿using ChangeNotificationSample;
 using System;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
+
 
 namespace CollectionDataBinding
 {
@@ -21,33 +24,33 @@ namespace CollectionDataBinding
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<User> users;
+        private ObservableCollection<User> users;
         public MainWindow()
         {
             InitializeComponent();
             LoadUsers();
+            DataContext = users;
         }
         private void LoadUsers()
         {
-            users = new List<User>();
+            users = new ObservableCollection<User>();
             users.Add(new User() { Name = "Peter Parker" }); 
             users.Add(new User() { Name = "Tony Stark" }); 
             users.Add(new User() { Name = "Natasha Romanoff" });
 
-            usersListBox.ItemsSource = users;
+            //usersListBox.ItemsSource = users; 
+
         }
 
         private void addUserButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(userTextBox.Text))
+
             {
-                User user = new User() { Name = userTextBox.Text }; 
-                users.Add(user); 
-                usersListBox.SelectedItem = user; 
+                User user = new User() { Name = "Nuevo usuario" }; 
+                users.Add(user); usersListBox.SelectedItem = user; 
                 UpdateView();
             }
         }
-
         private void changeUserButton_Click(object sender, RoutedEventArgs e)
         {
             if (usersListBox.SelectedItem != null)
@@ -69,8 +72,8 @@ namespace CollectionDataBinding
         {
             if (usersListBox.SelectedItem != null)
             {
-                users.Remove(usersListBox.SelectedItem as User); 
-                userTextBox.Text = ""; 
+                users.Remove(usersListBox.SelectedItem as User);
+                //userTextBox.Text = "";  
                 UpdateView();
             }
         }
@@ -89,20 +92,12 @@ namespace CollectionDataBinding
                 changeUserButton.IsEnabled = false;
             }
         }
-
-        private void usersListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (usersListBox.SelectedItem != null)
-            {
-                userTextBox.Text = (usersListBox.SelectedItem as User).Name;
-            }
-        }
     }
-
 }
 
 namespace ChangeNotificationSample
-{ class User
+{
+    class User : INotifyPropertyChanged
     {
         private string name;
         public string Name
@@ -113,11 +108,21 @@ namespace ChangeNotificationSample
                 if (name != value)
                 {
                     name = value;
+                    OnPropertyChanged("Name");
                 }
-                    
+
             }
 
 
         }
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
+
 }
