@@ -1,0 +1,15 @@
+C:\Users\user1\source\repos\CollectionDataBinding\bin\Debug\CollectionDataBinding.exe.config
+C:\Users\user1\source\repos\CollectionDataBinding\bin\Debug\CollectionDataBinding.exe
+C:\Users\user1\source\repos\CollectionDataBinding\bin\Debug\CollectionDataBinding.pdb
+C:\Users\user1\source\repos\CollectionDataBinding\obj\Debug\CollectionDataBinding.csprojAssemblyReference.cache
+C:\Users\user1\source\repos\CollectionDataBinding\obj\Debug\MainWindow.g.cs
+C:\Users\user1\source\repos\CollectionDataBinding\obj\Debug\App.g.cs
+C:\Users\user1\source\repos\CollectionDataBinding\obj\Debug\CollectionDataBinding_MarkupCompile.cache
+C:\Users\user1\source\repos\CollectionDataBinding\obj\Debug\CollectionDataBinding_MarkupCompile.lref
+C:\Users\user1\source\repos\CollectionDataBinding\obj\Debug\MainWindow.baml
+C:\Users\user1\source\repos\CollectionDataBinding\obj\Debug\CollectionDataBinding.g.resources
+C:\Users\user1\source\repos\CollectionDataBinding\obj\Debug\CollectionDataBinding.Properties.Resources.resources
+C:\Users\user1\source\repos\CollectionDataBinding\obj\Debug\CollectionDataBinding.csproj.GenerateResource.cache
+C:\Users\user1\source\repos\CollectionDataBinding\obj\Debug\CollectionDataBinding.csproj.CoreCompileInputs.cache
+C:\Users\user1\source\repos\CollectionDataBinding\obj\Debug\CollectionDataBinding.exe
+C:\Users\user1\source\repos\CollectionDataBinding\obj\Debug\CollectionDataBinding.pdb
